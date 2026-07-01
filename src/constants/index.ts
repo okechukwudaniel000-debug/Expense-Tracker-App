@@ -1,0 +1,175 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { Category, Transaction, UserPreferences } from '../types';
+
+export const DEFAULT_CATEGORIES: Category[] = [
+  { id: '1', name: 'Food', color: 'bg-rose-500/10', textColor: 'text-rose-500', icon: 'Utensils' },
+  { id: '2', name: 'Transport', color: 'bg-sky-500/10', textColor: 'text-sky-500', icon: 'Car' },
+  { id: '3', name: 'Shopping', color: 'bg-amber-500/10', textColor: 'text-amber-500', icon: 'ShoppingBag' },
+  { id: '4', name: 'Bills', color: 'bg-purple-500/10', textColor: 'text-purple-500', icon: 'Receipt' },
+  { id: '5', name: 'Entertainment', color: 'bg-pink-500/10', textColor: 'text-pink-500', icon: 'Tv' },
+  { id: '6', name: 'Health', color: 'bg-emerald-500/10', textColor: 'text-emerald-500', icon: 'HeartPulse' },
+  { id: '7', name: 'Education', color: 'bg-indigo-500/10', textColor: 'text-indigo-500', icon: 'GraduationCap' },
+  { id: '8', name: 'Salary', color: 'bg-teal-500/10', textColor: 'text-teal-500', icon: 'Briefcase' },
+  { id: '9', name: 'Freelance', color: 'bg-cyan-500/10', textColor: 'text-cyan-500', icon: 'Laptop' },
+  { id: '10', name: 'Investments', color: 'bg-violet-500/10', textColor: 'text-violet-500', icon: 'TrendingUp' },
+  { id: '11', name: 'Business', color: 'bg-blue-500/10', textColor: 'text-blue-500', icon: 'Building2' },
+  { id: '12', name: 'Savings', color: 'bg-green-500/10', textColor: 'text-green-500', icon: 'PiggyBank' },
+  { id: '13', name: 'Miscellaneous', color: 'bg-slate-500/10', textColor: 'text-slate-500', icon: 'Hexagon' },
+];
+
+export const DEFAULT_PREFERENCES: UserPreferences = {
+  name: 'Alex Rivera',
+  currency: '$',
+  monthlyBudget: 5000,
+};
+
+// Seed transactions spread across the current and previous month for beautiful visuals
+const getPastDateStr = (daysAgo: number): string => {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().split('T')[0];
+};
+
+export const SEED_TRANSACTIONS: Transaction[] = [
+  {
+    id: 'tx-1',
+    title: 'Monthly Salary',
+    description: 'Tech Corp - Primary salary payout',
+    amount: 6200,
+    type: 'income',
+    category: 'Salary',
+    date: getPastDateStr(25),
+    createdAt: new Date(getPastDateStr(25)).toISOString(),
+    updatedAt: new Date(getPastDateStr(25)).toISOString(),
+    notes: 'Regular salary with standard deductions applied.',
+  },
+  {
+    id: 'tx-2',
+    title: 'Whole Foods Market',
+    description: 'Weekly organic groceries',
+    amount: 184.5,
+    type: 'expense',
+    category: 'Food',
+    date: getPastDateStr(22),
+    createdAt: new Date(getPastDateStr(22)).toISOString(),
+    updatedAt: new Date(getPastDateStr(22)).toISOString(),
+    notes: 'Bought food prep items for the week.',
+  },
+  {
+    id: 'tx-3',
+    title: 'AWS Cloud Services',
+    description: 'Monthly cloud hosting bill',
+    amount: 45.2,
+    type: 'expense',
+    category: 'Bills',
+    date: getPastDateStr(20),
+    createdAt: new Date(getPastDateStr(20)).toISOString(),
+    updatedAt: new Date(getPastDateStr(20)).toISOString(),
+    notes: 'Project hosting fees.',
+  },
+  {
+    id: 'tx-4',
+    title: 'Freelance Design',
+    description: 'Fintech client landing page mobile design',
+    amount: 1450,
+    type: 'income',
+    category: 'Freelance',
+    date: getPastDateStr(18),
+    createdAt: new Date(getPastDateStr(18)).toISOString(),
+    updatedAt: new Date(getPastDateStr(18)).toISOString(),
+    notes: 'Final milestone delivery.',
+  },
+  {
+    id: 'tx-5',
+    title: 'Starbucks Coffee',
+    description: 'Team coffee sync',
+    amount: 16.8,
+    type: 'expense',
+    category: 'Food',
+    date: getPastDateStr(15),
+    createdAt: new Date(getPastDateStr(15)).toISOString(),
+    updatedAt: new Date(getPastDateStr(15)).toISOString(),
+  },
+  {
+    id: 'tx-6',
+    title: 'Apple Store purchase',
+    description: 'iPad Pro leather case',
+    amount: 129,
+    type: 'expense',
+    category: 'Shopping',
+    date: getPastDateStr(12),
+    createdAt: new Date(getPastDateStr(12)).toISOString(),
+    updatedAt: new Date(getPastDateStr(12)).toISOString(),
+    notes: 'Treated myself using freelance funds.',
+  },
+  {
+    id: 'tx-7',
+    title: 'Electric Utility',
+    description: 'City Power & Gas bill',
+    amount: 112.4,
+    type: 'expense',
+    category: 'Bills',
+    date: getPastDateStr(10),
+    createdAt: new Date(getPastDateStr(10)).toISOString(),
+    updatedAt: new Date(getPastDateStr(10)).toISOString(),
+  },
+  {
+    id: 'tx-8',
+    title: 'Netflix Subscription',
+    description: 'Premium Ultra HD plan',
+    amount: 22.99,
+    type: 'expense',
+    category: 'Entertainment',
+    date: getPastDateStr(8),
+    createdAt: new Date(getPastDateStr(8)).toISOString(),
+    updatedAt: new Date(getPastDateStr(8)).toISOString(),
+  },
+  {
+    id: 'tx-9',
+    title: 'Uber Ride',
+    description: 'Ride to airport',
+    amount: 48.5,
+    type: 'expense',
+    category: 'Transport',
+    date: getPastDateStr(5),
+    createdAt: new Date(getPastDateStr(5)).toISOString(),
+    updatedAt: new Date(getPastDateStr(5)).toISOString(),
+  },
+  {
+    id: 'tx-10',
+    title: 'Quarterly Stock Dividends',
+    description: 'Index ETF payouts',
+    amount: 320,
+    type: 'income',
+    category: 'Investments',
+    date: getPastDateStr(4),
+    createdAt: new Date(getPastDateStr(4)).toISOString(),
+    updatedAt: new Date(getPastDateStr(4)).toISOString(),
+  },
+  {
+    id: 'tx-11',
+    title: 'Gym Membership',
+    description: 'Monthly active pass renewal',
+    amount: 75,
+    type: 'expense',
+    category: 'Health',
+    date: getPastDateStr(2),
+    createdAt: new Date(getPastDateStr(2)).toISOString(),
+    updatedAt: new Date(getPastDateStr(2)).toISOString(),
+  },
+  {
+    id: 'tx-12',
+    title: 'Online Course purchase',
+    description: 'Advanced Tailwind and React design architectures',
+    amount: 95,
+    type: 'expense',
+    category: 'Education',
+    date: getPastDateStr(1),
+    createdAt: new Date(getPastDateStr(1)).toISOString(),
+    updatedAt: new Date(getPastDateStr(1)).toISOString(),
+  },
+];
