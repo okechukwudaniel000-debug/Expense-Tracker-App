@@ -1,20 +1,40 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# ExpenseFlow
 
-# Run and deploy your AI Studio app
+Smart Personal Finance Manager — A highly polished, secure, offline-first personal ledger application.
 
-This contains everything you need to run your app locally.
+## 🚀 Features
 
-View your app in AI Studio: https://ai.studio/apps/a5242d86-cf55-47f4-8aec-3cf0cf5b416d
+- **Operational Ledger**: Search, filter, and audit transactions with category tags and metadata.
+- **Financial Analytics**: Clean visualizations showing inflow retention, daily outflow speed, and cumulative balance statistics.
+- **Custom Category Builder**: Customize categories with color accents and icons.
+- **Enterprise Key Bindings**: Keyboard shortcuts (`N` for new record, `S` for search, `D` for dashboard) to streamline management.
+- **Privacy & Performance**: Fully local storage based state persistence with cloud-ready architecture.
 
-## Run Locally
+## 🛠️ Local Development
 
-**Prerequisites:**  Node.js
+### Prerequisites
+Ensure you have **Node.js** installed on your machine.
 
+### Installation
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Clone or download the repository contents.
+2. Install the application dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+Start the development server locally:
+```bash
+npm run dev
+```
+
+### Building for Production
+
+To create a production build of the application:
+```bash
+npm run build
+```
+
+The output will be compiled into the `dist/` directory, ready to be hosted on any static hosting provider.
